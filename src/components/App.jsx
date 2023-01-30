@@ -10,7 +10,7 @@ import { getFullContacts } from "redux/selectors";
 
 export function App() {
   const dispatch = useDispatch();
-  const { value, isLoading, error } = useSelector(getFullContacts);
+  const {  isLoading, error } = useSelector(getFullContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -23,7 +23,6 @@ export function App() {
          <h2>Contacts</h2>
           {isLoading && <p>Loading contacts...</p>}
          {error && <p>{error}</p>}
-         {/* {value.length > 0 && JSON.stringify(value, null, 2)} */}
          <Filter />
         
       <ContactList />
