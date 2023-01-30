@@ -20,7 +20,7 @@ const ContactList = () => {
     console.log(filteredContacts);
     return (
         <List>
-            {filteredContacts.map(contact => (<Item key={contact.id}>{contact.name}: {contact.number}
+            {filteredContacts.map(contact => (<Item key={contact.id}>{contact.name}: {contact.phone}
                 <Button onClick={()=> dispatch(deleteContact(contact.id)) }>Delete</Button>
             </Item>))}
         </List>
