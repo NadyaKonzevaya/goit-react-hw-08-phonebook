@@ -40,7 +40,7 @@ export const contactsSlice = createSlice({
     state.isLoading = false;
     state.error = null;
     const index = state.value.findIndex(
-      contact => contact.id === action.payload
+      contact => contact.id === action.payload.id
     );
     state.value.splice(index, 1);
   },
