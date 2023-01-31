@@ -1,10 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { nanoid } from 'nanoid';
 import PropTypes from "prop-types";
 import { Label, Button } from "./PhonebookForm.styled";
 import styled from "styled-components";
-import { addContact } from "redux/contactsSlice";
+import { addContact } from "redux/operations";
 import { useDispatch } from "react-redux";
 
 const InputName = styled(Field)`
@@ -41,10 +40,9 @@ let schema = yup.object().shape({
 
 const PhonebookForm = () => {
     const dispatch = useDispatch();
-    // const contacts = useSelector(getContacts);
 
     const handleSubmit = (values, {resetForm}) => {
-        const contact = { id: nanoid(7), name: values.name, number: values.number };
+        const contact = {  name: values.name, number: values.number };
         console.log(contact);
         dispatch(addContact(contact));
         resetForm();

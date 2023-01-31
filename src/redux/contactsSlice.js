@@ -1,4 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchContacts, addContact, deleteContact } from './operations';
+
+const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -7,36 +17,34 @@ export const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {
-    fetchingInProgress(state) {
-      state.isLoading = true;
-    },
-    fetchingSuccess(state, action) {
+  extraReducers: {
+    [fetchContacts.pending]: handlePending,
+    [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.value = action.payload;
     },
-    fetchingError(state, action) {
+    [fetchContacts.rejected]: handleRejected,
+
+    [addContact.pending]: handlePending,
+    [addContact.fulfilled](state, action) {
       state.isLoading = false;
-      state.error = action.payload;
-    },
-    addContact(state, action) {
+      state.error = null;
       state.value.push(action.payload);
     },
-    deleteContact(state, action) {
-      state.value = state.value.filter(
-        contact => contact.id !== action.payload
-      );
-    },
+    [addContact.rejected]: handleRejected,
   },
-});
 
-export const {
-  fetchingInProgress,
-  fetchingSuccess,
-  fetchingError,
-  addContact,
-  deleteContact,
-} = contactsSlice.actions;
+  [deleteContact.pending]: handlePending,
+  [deleteContact.fulfilled](state, action) {
+    state.isLoading = false;
+    state.error = null;
+    const index = state.value.findIndex(
+      contact => contact.id === action.payload
+    );
+    state.value.splice(index, 1);
+  },
+  [deleteContact.rejected]: handleRejected,
+});
 
 export const contactsReducer = contactsSlice.reducer;

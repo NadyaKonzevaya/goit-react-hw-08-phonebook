@@ -6,11 +6,12 @@ import Filter from "./Filter";
 import { Container } from "./App.styled";
 import { fetchContacts } from "redux/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { getFullContacts } from "redux/selectors";
+import { getIsLoading, getError } from "redux/selectors";
 
 export function App() {
   const dispatch = useDispatch();
-  const {  isLoading, error } = useSelector(getFullContacts);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,7 +22,7 @@ export function App() {
       <h1>Phonebook</h1>
       <PhonebookForm  />
          <h2>Contacts</h2>
-          {isLoading && <p>Loading contacts...</p>}
+          {isLoading && !error && <p>Loading contacts...</p>}
          {error && <p>{error}</p>}
          <Filter />
         
