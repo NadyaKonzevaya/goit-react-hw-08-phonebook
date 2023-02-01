@@ -21,11 +21,10 @@ export function App() {
     <Container>
       <h1>Phonebook</h1>
       <PhonebookForm  />
-         <h2>Contacts</h2>
-          {isLoading && !error && <p>Loading contacts...</p>}
-         {error && <p>{error}</p>}
-         <Filter />
-        
+      <h2>Contacts</h2>
+      {isLoading && !error && <p>Loading contacts...</p>}
+      {error && <p>{error}</p>}
+      <Filter />
       <ContactList />
     </Container>
     );

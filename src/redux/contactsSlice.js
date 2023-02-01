@@ -33,18 +33,18 @@ export const contactsSlice = createSlice({
       state.value.push(action.payload);
     },
     [addContact.rejected]: handleRejected,
+    [deleteContact.pending]: handlePending,
+    [deleteContact.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      console.log(action);
+      const index = state.value.findIndex(
+        contact => contact.id === action.payload.id
+      );
+      state.value.splice(index, 1);
+    },
+    [deleteContact.rejected]: handleRejected,
   },
-
-  [deleteContact.pending]: handlePending,
-  [deleteContact.fulfilled](state, action) {
-    state.isLoading = false;
-    state.error = null;
-    const index = state.value.findIndex(
-      contact => contact.id === action.payload.id
-    );
-    state.value.splice(index, 1);
-  },
-  [deleteContact.rejected]: handleRejected,
 });
 
 export const contactsReducer = contactsSlice.reducer;
