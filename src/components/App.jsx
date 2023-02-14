@@ -4,20 +4,28 @@ import PhonebookForm from "./PhonebookForm";
 import ContactList from "./ContactList";
 import Filter from "./Filter";
 import { Container } from "./App.styled";
-import { fetchContacts } from "redux/operations";
+import { fetchContacts } from "redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { getIsLoading, getError } from "redux/selectors";
+import { selectIsLoading, selectError } from "redux/contacts/selectors";
+import { useAuth } from "hooks/useAuth";
+import { refreshUser } from "redux/auth/operations";
 
 export function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const { isRefreshing } = useAuth();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
   
-     return (
+  
+     return isRefreshing ? ("Fetching user data...") : (
     <Container>
       <h1>Phonebook</h1>
       <PhonebookForm  />
