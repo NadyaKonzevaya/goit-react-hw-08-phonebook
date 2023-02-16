@@ -22,9 +22,11 @@ import { RestrictedRoute } from "./RestrictedRoute";
 export function App() {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+  // const {token} = 
   
   useEffect(() => {
     dispatch(refreshUser());
+    console.log()
   }, [dispatch]);
   
   
