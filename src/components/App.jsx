@@ -1,21 +1,23 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import PropTypes from  "prop-types";
-import PhonebookForm from "./PhonebookForm";
-import ContactList from "./ContactList";
-import Filter from "./Filter";
-import { Container } from "./App.styled";
+// import PhonebookForm from "./PhonebookForm";
+// import ContactList from "./ContactList";
+// import Filter from "./Filter";
+// import { Container } from "./App.styled";
 // import { fetchContacts } from "redux/contacts/operations";
 import { useDispatch } from "react-redux";
 // import { selectIsLoading, selectError } from "redux/contacts/selectors";
 import { useAuth } from "hooks/useAuth";
 import { refreshUser } from "redux/auth/operations";
-import { AppBar } from "./AppBar.js/AppBar";
+// import { AppBar } from "./AppBar.js/AppBar";
 import { Home } from "pages/Home";
 import { Login } from "pages/Login";
 import { Register } from "pages/Register";
 import { Contacts } from "pages/Contacts";
 import { SharedLayout } from "./SharedLayout";
+import { PrivateRoute } from "./PrivateRoute";
+import { RestrictedRoute } from "./RestrictedRoute";
 
 export function App() {
   const dispatch = useDispatch();
@@ -36,12 +38,12 @@ export function App() {
     <Routes> 
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="contacts" element={<Contacts />} />
+        <Route path="/login" element={<RestrictedRoute component={Login} redirectTo="/contacts"/>}/>
+        <Route path="/register" element={<RestrictedRoute component={Register} redirectTo="/contacts"/>}/>
+        <Route path="/contacts" element={<PrivateRoute component={Contacts} redirectTo="/login" />} />
         {/* <Route path="*" element={<NotFound />} /> */}
-        </Route>
-      </Routes>
+      </Route>
+    </Routes>
     
 
     //    <Container>

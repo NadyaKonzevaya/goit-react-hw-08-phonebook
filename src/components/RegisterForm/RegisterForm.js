@@ -7,8 +7,8 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    console.log(form.elements.email.value);
-    console.log(form.elements.password.value);
+    // console.log(form.elements.email.value);
+    // console.log(form.elements.password.value);
     dispatch(
       register({
         name: form.elements.name.value,

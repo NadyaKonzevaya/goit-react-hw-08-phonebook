@@ -6,20 +6,21 @@ export const LoginForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const form = e.currentTarget;
     dispatch(
       logIn({
-        email: e.currentTarget.elements.email.value,
-        password: e.currentTarget.elements.password.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
       })
     );
-    e.currentTarget.reset();
+    form.reset();
   };
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <label>
         Email
-        <input type="email" nmae="email" />
+        <input type="email" name="email" />
       </label>
       <label>
         Password
