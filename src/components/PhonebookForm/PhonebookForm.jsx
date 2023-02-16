@@ -42,7 +42,7 @@ const PhonebookForm = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, {resetForm}) => {
-        const contact = {  name: values.name, phone: values.number };
+        const contact = {  name: values.name, number: values.number };
         console.log(contact);
         dispatch(addContact(contact));
         resetForm();

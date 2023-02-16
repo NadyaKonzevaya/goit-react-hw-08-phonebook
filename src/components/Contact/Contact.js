@@ -7,7 +7,7 @@ export const Contact = ({ contact }) => {
   const handleDelete = () => dispatch(deleteContact(contact.id));
   return (
     <>
-      {contact.name}: {contact.phone}
+      {contact.name}: {contact.number}
       <Button onClick={handleDelete}>Delete</Button>
     </>
   );
