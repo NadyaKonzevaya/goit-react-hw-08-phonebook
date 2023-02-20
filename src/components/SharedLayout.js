@@ -1,4 +1,4 @@
-import { AppBar } from './AppBar.js/AppBar';
+import { AppBar } from './AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
 import { Container } from './App.styled';
 

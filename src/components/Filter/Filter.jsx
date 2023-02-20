@@ -8,7 +8,7 @@ const Filter = () => {
     const dispatch = useDispatch();
     const handleFilterChange = e => dispatch(setFilter(e.currentTarget.value));
     const filter = useSelector(selectFilter);
-    console.log(filter);
+    // console.log(filter);
     
     return (
         <Container>

@@ -6,17 +6,17 @@ import { Contact } from "components/Contact/Contact";
 
 const ContactList = () => {
     const contacts = useSelector(selectContacts);
-    console.log(contacts);
+    // console.log(contacts);
     const filter = useSelector(selectFilter);
-    console.log(filter);
+    // console.log(filter);
 
     const getFilteredContacts = () => {
         const normalizedFilter = filter.toLowerCase();
-        console.log(normalizedFilter);
+        // console.log(normalizedFilter);
         return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
     }
     const filteredContacts = getFilteredContacts();
-    console.log(filteredContacts);
+    // console.log(filteredContacts);
     return (
         <List>
             {filteredContacts.map(contact => (
