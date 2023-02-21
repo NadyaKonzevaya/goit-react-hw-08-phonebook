@@ -1,10 +1,10 @@
 import styled from "styled-components";
+
 export const Form = styled.form`
  width: 320px;
+  margin: auto;
  `;
  
-
-
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
@@ -18,5 +18,10 @@ export const Label = styled.label`
     &:hover, &:focus {
         border: 5px solid #81b9e7;
     }`
+
+  export const Link = styled.a`
+    display: block;
+    margin-top: 10px;
+  `  
 
 

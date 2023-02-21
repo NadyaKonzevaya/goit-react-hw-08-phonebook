@@ -3,12 +3,17 @@ import { useAuth } from 'hooks/useAuth';
 import { logOut } from 'redux/auth/operations';
 import { DivWrapper, UserName } from './UserMenu.styled';
 import { Button } from 'components/ContactList/ContactList.styled';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
-  const handleLogOut = () => dispatch(logOut());
+  const handleLogOut = () => {
+    toast.success('You have successfully logged out!');
+    dispatch(logOut());
+  };
 
   return (
     <DivWrapper>

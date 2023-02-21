@@ -6,7 +6,7 @@ import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
-export const Contacts = () => {
+export default function Contacts() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -26,4 +26,4 @@ export const Contacts = () => {
       <ContactList />
     </div>
   );
-};
+}

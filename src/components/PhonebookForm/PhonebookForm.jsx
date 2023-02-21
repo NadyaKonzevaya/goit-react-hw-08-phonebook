@@ -5,6 +5,7 @@ import { Label, Button } from "./PhonebookForm.styled";
 import styled from "styled-components";
 import { addContact } from "redux/contacts/operations";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const InputName = styled(Field)`
     border: 1px solid gray;
@@ -43,7 +44,7 @@ const PhonebookForm = () => {
 
     const handleSubmit = (values, {resetForm}) => {
         const contact = {  name: values.name, number: values.number };
-        // console.log(contact);
+        toast.success("Contact has been created!");
         dispatch(addContact(contact));
         resetForm();
     }

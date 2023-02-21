@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { Form, Label, InputName } from './LoginForm.styled.jsx';
+import { Form, Label, InputName, Link } from './LoginForm.styled.jsx';
 import { Button } from 'components/ContactList/ContactList.styled.jsx';
 
 export const LoginForm = () => {
@@ -26,9 +26,12 @@ export const LoginForm = () => {
       </Label>
       <Label>
         Password
-        <InputName type="password" name="password" />
+        <InputName type="password" name="password" minLength={5} />
       </Label>
       <Button type="submit">Log in</Button>
+      <Link href="/goit-react-hw-07-phonebook_new/register">
+        Don't have an account? Register now!
+      </Link>
     </Form>
   );
 };
