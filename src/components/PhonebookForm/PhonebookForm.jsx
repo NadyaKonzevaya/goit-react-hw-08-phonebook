@@ -68,8 +68,9 @@ const PhonebookForm = () => {
                             type="tel"
                             name="number"
                             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with + and min length 7"
                             required
+                            minLength={7}
                         />
                         <ErrorMessage name="number" />
                     </Label>
