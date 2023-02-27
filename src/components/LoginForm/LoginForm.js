@@ -22,14 +22,26 @@ export const LoginForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label>
         Email
-        <InputName type="email" name="email" />
+        <InputName
+          type="email"
+          name="email"
+          placeholder="Enter your e-mail"
+          required
+        />
       </Label>
       <Label>
         Password
-        <InputName type="password" name="password" minLength={5} />
+        <InputName
+          type="password"
+          name="password"
+          minLength={5}
+          // autoComplete="username"
+          placeholder="Enter your current password"
+          required
+        />
       </Label>
       <Button type="submit">Log in</Button>
-      <Link href="/goit-react-hw-07-phonebook_new/register">
+      <Link href="/goit-react-hw-08-phonebook/register">
         Don't have an account? Register now!
       </Link>
     </Form>

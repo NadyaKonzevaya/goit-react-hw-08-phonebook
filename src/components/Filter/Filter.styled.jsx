@@ -10,6 +10,6 @@ export const InputName = styled.input`
     border-radius: 5px;
     outline: none;
     &:hover, &:focus {
-        border: 5px solid #81b9e7;
+        border: 5px solid rgb(147, 243, 229);
     }
 `;

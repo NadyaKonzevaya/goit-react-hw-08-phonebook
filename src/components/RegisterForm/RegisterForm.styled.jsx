@@ -12,16 +12,20 @@ export const Label = styled.label`
   flex-direction: column;
   margin-bottom: 16px;`
  
-   export const InputName = styled.input`
+export const InputName = styled.input`
+   box-sizing: border-box;
+   height: 30px;
+   margin-top: 5px;
+   
     border: 1px solid gray;
     border-radius: 5px;
     outline: none;
     &:hover, &:focus {
-        border: 5px solid #81b9e7;
+        border: 5px solid rgb(147, 243, 229);
     }`
 
     export const Button = styled.button`
-    background-color: rgb(241, 139, 245);
+    background-color: rgb(147, 243, 229);
     border: none;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 1px 3px rgba(0, 0, 0, 0.12);
@@ -30,7 +34,7 @@ export const Label = styled.label`
     padding: 3px;
     /* margin-left: 50px; */
     &:hover, &:focus {
-        background-color: lightblue;
+        background-color:  rgb(147, 243, 229);
     }
 `;
 

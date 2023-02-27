@@ -16,7 +16,7 @@ export const Label = styled.label`
     border-radius: 5px;
     outline: none;
     &:hover, &:focus {
-        border: 5px solid #81b9e7;
+        border: 5px solid  rgb(147, 243, 229);
     }`
 
   export const Link = styled.a`
