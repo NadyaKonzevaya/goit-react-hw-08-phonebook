@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import { register } from 'redux/auth/operations';
 import { Form, Label, InputName } from './RegisterForm.styled.jsx';
 import { Button } from 'components/Button.styled.jsx';
-// import { toast } from 'react-toastify';
 import { Link } from 'components/LoginForm/LoginForm.styled.jsx';
-import { unwrapResult } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    // toast.success('You have successfully registered!');
     dispatch(
       register({
         name: form.elements.name.value,

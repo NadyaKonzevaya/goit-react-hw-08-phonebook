@@ -9,7 +9,6 @@ import styled from "styled-components";
     border-radius: 10px;
     width: auto;
     padding: 7px;
-    /* margin-left: 50px; */
     &:hover, &:focus {
         background-color:  pink;
     }

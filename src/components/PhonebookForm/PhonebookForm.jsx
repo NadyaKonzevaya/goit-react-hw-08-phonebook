@@ -1,19 +1,20 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import { Label } from "./PhonebookForm.styled";
 import {Button} from "components/Button.styled"
-import styled from "styled-components";
 import { addContact } from "redux/contacts/operations";
-import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+
 
 const InputName = styled(Field)`
     border: 1px solid gray;
     border-radius: 5px;
     outline: none;
     box-sizing: border-box;
-     height: 30px;
+    height: 30px;
     &:focus {
         border: 5px solid rgb(147, 243, 229);
     }

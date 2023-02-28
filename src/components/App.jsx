@@ -1,21 +1,16 @@
 import { useEffect, lazy } from "react";
-// import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import PropTypes from  "prop-types";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { useAuth } from "hooks/useAuth";
 import { refreshUser } from "redux/auth/operations";
-// import { Home } from "pages/Home";
-// import { Login } from "pages/Login";
-// import { Register } from "pages/Register";
-// import { Contacts } from "pages/Contacts";
 import { SharedLayout } from "./SharedLayout";
 import { PrivateRoute } from "./PrivateRoute";
 import { RestrictedRoute } from "./RestrictedRoute";
-import { ToastContainer } from "react-toastify";
+
 
 const HomePage = lazy(() => import('../pages/Home'));
-// const HomePage = lazy(() => import('../pages/Home'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));

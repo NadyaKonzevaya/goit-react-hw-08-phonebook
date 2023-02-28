@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts/operations';
-import { Button } from 'components/Button.styled';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import { deleteContact } from 'redux/contacts/operations';
+import { Button } from 'components/Button.styled';
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
@@ -11,11 +11,9 @@ export const Contact = ({ contact }) => {
     dispatch(deleteContact(contact.id));
   };
 
-  // const handleEdit = () => {};
   return (
     <>
       {contact.name}: {contact.number}
-      {/* <Button onClick={handleEdit}>Edit</Button> */}
       <Button onClick={handleDelete}>Delete</Button>
     </>
   );

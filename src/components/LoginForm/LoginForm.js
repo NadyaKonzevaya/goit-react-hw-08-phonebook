@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import { logIn } from 'redux/auth/operations';
 import { Form, Label, InputName, Link } from './LoginForm.styled.jsx';
 import { Button } from 'components/Button.styled';
-import { unwrapResult } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,6 @@ export const LoginForm = () => {
           type="password"
           name="password"
           minLength={5}
-          // autoComplete="username"
           placeholder="Enter your current password"
           required
         />

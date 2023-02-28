@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from 'hooks/useAuth';
 import { logOut } from 'redux/auth/operations';
 import { DivWrapper, UserName } from './UserMenu.styled';
 import { Button } from 'components/Button.styled';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();

@@ -11,6 +11,5 @@ export const Link = styled(NavLink)`
     color: #fc657e;
     };
   `
- 
 
 
