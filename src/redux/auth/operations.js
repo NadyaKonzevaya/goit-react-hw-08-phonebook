@@ -21,19 +21,11 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      // if (AxiosError.code === 'ERR_BAD_REQUEST') {
-      //   toast.error('User creation error.');
-      // } else {
       const response = await axios.post('/users/signup', credentials);
       setAuthHeader(response.data.token);
-      toast.success('You have successfully registered!');
       return response.data;
-      // }
     } catch (error) {
-      toast.error('User creation error.');
-      console.log(error);
-      console.log(thunkAPI);
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -44,11 +36,11 @@ export const logIn = createAsyncThunk(
     try {
       const response = await axios.post('/users/login', credentials);
       setAuthHeader(response.data.token);
-      toast.success('You have successfully logged in!');
 
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

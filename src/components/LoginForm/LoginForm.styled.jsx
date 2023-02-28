@@ -15,7 +15,9 @@ export const Label = styled.label`
     border: 1px solid gray;
     border-radius: 5px;
     outline: none;
-    &:hover, &:focus {
+    box-sizing: border-box;
+     height: 30px;
+    &:focus {
         border: 5px solid  rgb(147, 243, 229);
     }`
 

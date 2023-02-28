@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import { Form, Label, InputName, Link } from './LoginForm.styled.jsx';
-import { Button } from 'components/ContactList/ContactList.styled.jsx';
+import { Button } from 'components/Button.styled';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,18 @@ export const LoginForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .then(unwrapResult)
+      .then(originalPromiseResult => {
+        toast.success('You have successfully logged in!');
+      })
+      .catch(rejectedValueOrSerializedError => {
+        if (rejectedValueOrSerializedError.response.status === 400) {
+          toast.error('Login error');
+        } else {
+          toast.error(rejectedValueOrSerializedError.message);
+        }
+      });
     form.reset();
   };
 

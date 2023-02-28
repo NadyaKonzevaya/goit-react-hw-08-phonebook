@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { logOut } from 'redux/auth/operations';
 import { DivWrapper, UserName } from './UserMenu.styled';
-import { Button } from 'components/ContactList/ContactList.styled';
+import { Button } from 'components/Button.styled';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -9,6 +9,8 @@ export const InputName = styled.input`
     border: 1px solid gray;
     border-radius: 5px;
     outline: none;
+    box-sizing: border-box;
+     height: 30px;
     &:hover, &:focus {
         border: 5px solid rgb(147, 243, 229);
     }

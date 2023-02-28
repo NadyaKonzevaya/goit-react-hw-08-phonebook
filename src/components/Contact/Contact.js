@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { Button } from 'components/ContactList/ContactList.styled';
+import { Button } from 'components/Button.styled';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 

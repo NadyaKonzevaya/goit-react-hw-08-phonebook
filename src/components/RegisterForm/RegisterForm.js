@@ -1,8 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { Form, Label, InputName, Button } from './RegisterForm.styled.jsx';
+import { Form, Label, InputName } from './RegisterForm.styled.jsx';
+import { Button } from 'components/Button.styled.jsx';
 // import { toast } from 'react-toastify';
 import { Link } from 'components/LoginForm/LoginForm.styled.jsx';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -17,7 +20,20 @@ export const RegisterForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
+    )
+      .then(unwrapResult)
+      .then(originalPromiseResult => {
+        toast.success('You have successfully logged in!');
+      })
+      .catch(rejectedValueOrSerializedError => {
+        if (rejectedValueOrSerializedError.response.status === 400) {
+          toast.error('User creation error');
+        } else if (rejectedValueOrSerializedError.response.status === 500) {
+          toast.error('Server error');
+        } else {
+          toast.error(rejectedValueOrSerializedError.message);
+        }
+      });
     form.reset();
   };
 
